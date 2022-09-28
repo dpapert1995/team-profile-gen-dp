@@ -1,0 +1,34 @@
+{
+  "name": "team-profile-gen-dp",
+  "version": "1.0.0",
+  "description": "This is the package.json file for my Module 10 project.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpapert1995/team-profile-gen-dp.git"
+  },
+  "keywords": [
+    "Team",
+    "Profile",
+    "Generator"
+  ],
+  "author": "Daniel Papert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dpapert1995/team-profile-gen-dp/issues"
+  },
+  "homepage": "https://github.com/dpapert1995/team-profile-gen-dp#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.0.3"
+  }
+}
