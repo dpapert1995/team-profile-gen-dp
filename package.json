@@ -5,10 +5,10 @@
   "main": "index.js",
   "directories": {
     "lib": "lib",
-    "test": "tests"
+    "test": "__tests__"
   },
   "scripts": {
-    "test": "npm run test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,6 @@
     "inquirer": "^8.2.4"
   },
   "devDependencies": {
-    "jest": "^29.0.3"
+    "jest": "^29.1.1"
   }
 }
