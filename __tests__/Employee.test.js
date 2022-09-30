@@ -23,7 +23,7 @@ test('gets employee email', () => {
     const employee = new Employee('Dan', 69, 'dpapert@gmail.com');
     expect(employee.getEmail()).toEqual(expect.stringContaining(employee.email.toString()));
 });
-// Tests getEmail() by retrieving a sample employee id. Result should be "Employee".
+// Tests getRole() by retrieving a sample employee id. Result should be "Employee".
 test('gets role of employee', () => {
     const employee = new Employee('Dan', 69, 'dpapert@gmail.com');
     expect(employee.getRole()).toEqual("Employee");
