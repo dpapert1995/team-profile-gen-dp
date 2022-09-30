@@ -192,3 +192,28 @@ const addEmployee = () => {
     })
 
 };
+
+// Generates HTML with team cards
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Checkout index.html for your team profile!")
+        }
+    })
+}; 
+
+// Call functions for program flow
+addManager()
+  .then(addEmployee)
+  .then(teamArray => {
+    return generateHTML(teamArray);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .catch(err => {
+ console.log(err);
+  });
