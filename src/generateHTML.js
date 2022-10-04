@@ -59,12 +59,12 @@ generateHTML = (data) => {
     for (let i = 0; i < data.length; i++) {
         // Uses employee class structure to cover all options
         const employee = data[i];
-        // Call manager function
+        // Calls manager function
         if (employee.getRole()  === 'Manager') {
             const cardManager = createManager(employee);
             pageArray.push(cardManager);
         }
-        // Call engineer function
+        // Calls engineer function
         if (employee.getRole()  === 'Engineer') {
             const cardEngineer = createEngineer(employee);
             pageArray.push(cardEngineer);
@@ -75,9 +75,47 @@ generateHTML = (data) => {
             pageArray.push(cardIntern);
         }  
     }
-    // Joining strings 
+    // Joins string of cards to new string
     const teamCards = pageArray.join('')
     // Return to generated page
     const generateTeam = generateTeamPage(teamCards); 
     return generateTeam;
 }
+
+// Generates
+const generateTeamPage = function (teamCards) {   
+    return`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Profile</title>
+        <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous"
+        <link rel="stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar" id="navbar">
+                <span class="navbar-brand" id="navbar-text">Team Profile</span>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row justify-content-center" id="team-cards">
+                    <!--Team Cards-->
+                    ${teamCards}
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    </html>
+  `;
+  }
+  
+  // Export to index
+  module.exports = generateHTML; 
