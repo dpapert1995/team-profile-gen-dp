@@ -164,7 +164,7 @@ const addEmployee = () => {
         },
         // Prompts user to add employee
         {
-            name: 'addEmployee',
+            name: 'addConfirm',
             type: 'confirm',
             message: 'Would you like to add more team members?',
             default: false
@@ -172,7 +172,7 @@ const addEmployee = () => {
     ])
     .then(employeeData => {
         // Constructs data for employees
-        let { name, id, email, role, github, school, confirmAddEmployee } = employeeData; 
+        let { name, id, email, role, github, school, addConfirm } = employeeData; 
         let employee; 
         // Determines structure based on employee role
         if (role === "Engineer") {
@@ -184,7 +184,8 @@ const addEmployee = () => {
         }
         teamArray.push(employee); 
         console.log(teamArray);
-        if (confirmAddEmployee) {
+        console.log(addConfirm);
+        if (addConfirm) {
             return addEmployee(teamArray); 
         } else {
             return teamArray;

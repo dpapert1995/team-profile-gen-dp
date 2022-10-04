@@ -1,0 +1,45 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: blue;
+    --secondary: white;
+    --tertiary: black;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Header Styles */
+.header-text {
+    background-color: var(--tertiary);
+    color: var(--secondary);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card Styles */
+.card {
+    border: 2px solid var(--tertiary);
+    margin: 5px;
+}
+
+.card-header {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+.card-body {
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.container {
+    display: flex; 
+    align-items: center;
+    margin: 100px auto;
+}

@@ -5,7 +5,7 @@ const createManager = function (manager) {
         <div class="card">
             <div class="card-header">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+                <h4>Manager</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${manager.id}</p>
@@ -23,7 +23,7 @@ const createEngineer = function (engineer) {
         <div class="card">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
+                <h4>Engineer</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${engineer.id}</p>
@@ -41,7 +41,7 @@ const createIntern = function (intern) {
         <div class="card">
             <div class="card-header">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+                <h4>Intern</h4>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
@@ -59,17 +59,17 @@ generateHTML = (data) => {
     for (let i = 0; i < data.length; i++) {
         // Uses employee class structure to cover all options
         const employee = data[i];
-        // Calls manager function
+        // Calls generate manager function
         if (employee.getRole()  === 'Manager') {
             const cardManager = createManager(employee);
             pageArray.push(cardManager);
         }
-        // Calls engineer function
+        // Calls generate engineer function
         if (employee.getRole()  === 'Engineer') {
             const cardEngineer = createEngineer(employee);
             pageArray.push(cardEngineer);
         }
-        // Calls Generate Intern Function
+        // Calls generate Intern Function
         if (employee.getRole()  === 'Intern') {
             const cardIntern = createIntern(employee);
             pageArray.push(cardIntern);
@@ -82,7 +82,7 @@ generateHTML = (data) => {
     return generateTeam;
 }
 
-// Generates
+// Generates full HTML content
 const generateTeamPage = function (teamCards) {   
     return`
     <!DOCTYPE html>
@@ -99,9 +99,7 @@ const generateTeamPage = function (teamCards) {
     </head>
     <body>
         <header>
-            <nav class="navbar" id="navbar">
-                <span class="navbar-brand" id="navbar-text">Team Profile</span>
-            </nav>
+                <span class="header-text" id="header">Team Profile</span>
         </header>
         <main>
             <div class="container">
@@ -112,7 +110,7 @@ const generateTeamPage = function (teamCards) {
             </div>
         </main>
     </body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"</script>
     </html>
   `;
   }
