@@ -45,7 +45,7 @@ const createIntern = function (intern) {
             </div>
             <div class="card-body">
                 <p class="id">ID: ${intern.id}</p>
-                <p class="email">Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
+                <p class="email">Email:<a href="mailto: ${intern.email}">${intern.email}</a></p>
                 <p class="school">School: ${intern.school}</p>
             </div>
     </div>
@@ -91,8 +91,6 @@ const generateTeamPage = function (teamCards) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile</title>
-        <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous"
-        <link rel="stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="style.css">

@@ -180,11 +180,9 @@ const addEmployee = () => {
             console.log(employee);
         } else if (role === "Intern") {
             employee = new Intern (name, id, email, school);
-            console.log(employee);
+            console.log(employee);        
         }
         teamArray.push(employee); 
-        console.log(teamArray);
-        console.log(addConfirm);
         if (addConfirm) {
             return addEmployee(teamArray); 
         } else {
