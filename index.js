@@ -11,7 +11,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // Team Array (for data to be pushed to)
-const teamArray = []; 
+const team = []; 
 
 // Adding in prompts
 // Requires at least one manager
@@ -22,8 +22,8 @@ const addManager = () => {
             name: 'name',
             type: 'input',
             message: 'Please enter the team managers name:', 
-            validate: nameInput => {
-                if (nameInput) {
+            validate: name => {
+                if (name) {
                     return true;
                 } else {
                     console.log ("Please enter a name!");
@@ -36,8 +36,8 @@ const addManager = () => {
             name: 'id',
             type: 'input',
             message: "Please enter the team manager's ID:",
-            validate: idInput => {
-                if  (isNaN(idInput)) {
+            validate: id => {
+                if  (isNaN(id)) {
                     console.log ("Please enter an ID!")
                     return false; 
                 } else {
@@ -50,8 +50,8 @@ const addManager = () => {
             name: 'email',
             type: 'input',
             message: "Please enter the team manager's email:",
-            validate: emailInput => {
-                if (emailInput) {
+            validate: email => {
+                if (email) {
                     return true;
                 } else {
                     console.log ('Please enter an email!')
@@ -64,8 +64,8 @@ const addManager = () => {
             name: 'officeNumber',
             type: 'input',
             message: "Please enter the team manager's office number:",
-            validate: officeInput => {
-                if  (isNaN(officeInput)) {
+            validate: office => {
+                if  (isNaN(office)) {
                     console.log ('Please enter an office number!')
                     return false; 
                 } else {
@@ -78,7 +78,7 @@ const addManager = () => {
     .then(managerInput => {
         const  { name, id, email, officeNumber } = managerInput; 
         const manager = new Manager (name, id, email, officeNumber);
-        teamArray.push(manager); 
+        team.push(manager); 
         console.log(manager); 
     })
 };
@@ -97,8 +97,8 @@ const addEmployee = () => {
             name: 'name',
             type: 'input',
             message: "Please enter this employee's name:", 
-            validate: nameInput => {
-                if (nameInput) {
+            validate: name => {
+                if (name) {
                     return true;
                 } else {
                     console.log ("Please enter a name!");
@@ -111,8 +111,8 @@ const addEmployee = () => {
             name: 'id',
             type: 'input',
             message: "Please enter the employee's ID:",
-            validate: nameInput => {
-                if  (isNaN(nameInput)) {
+            validate: id => {
+                if  (isNaN(id)) {
                     console.log ("Please enter an ID!")
                     return false; 
                 } else {
@@ -140,8 +140,8 @@ const addEmployee = () => {
             type: 'input',
             message: "Please enter the engineer's github username:",
             when: (input) => input.role === "Engineer",
-            validate: nameInput => {
-                if (nameInput ) {
+            validate: github => {
+                if (github ) {
                     return true;
                 } else {
                     console.log ("Please enter a github username!")
@@ -154,8 +154,8 @@ const addEmployee = () => {
             type: 'input',
             message: "Please enter the intern's school:",
             when: (input) => input.role === "Intern",
-            validate: nameInput => {
-                if (nameInput) {
+            validate: school => {
+                if (school) {
                     return true;
                 } else {
                     console.log ("Please enter the intern's school!")
@@ -182,16 +182,14 @@ const addEmployee = () => {
             employee = new Intern (name, id, email, school);
             console.log(employee);        
         }
-        teamArray.push(employee); 
+        team.push(employee); 
         if (addConfirm) {
-            return addEmployee(teamArray); 
+            return addEmployee(team); 
         } else {
-            return teamArray;
+            return team;
         }
     })
-
 };
-
 // Generates HTML with team cards
 const writeFile = data => {
     fs.writeFile('./dist/index.html', data, err => {
@@ -203,15 +201,14 @@ const writeFile = data => {
         }
     })
 }; 
-
 // Call functions for program flow
 addManager()
   .then(addEmployee)
-  .then(teamArray => {
-    return generateHTML(teamArray);
+  .then(team => {
+    return generateHTML(team);
   })
-  .then(pageHTML => {
-    return writeFile(pageHTML);
+  .then(page => {
+    return writeFile(page);
   })
   .catch(err => {
  console.log(err);
